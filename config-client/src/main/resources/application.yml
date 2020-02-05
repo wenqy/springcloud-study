@@ -1,0 +1,19 @@
+# refresh
+management:
+  endpoint:
+    shutdown:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+info:
+  profile: NaN
+  from: NaN
+#restTemplate配置
+rest:
+  connection:
+      connectionRequestTimeout: 30000
+      connectTimeout: 30000
+      readTimeout: 30000

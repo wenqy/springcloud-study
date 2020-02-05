@@ -1,0 +1,12 @@
+server:
+   port: 9411
+spring:
+    application:
+        name: zipkin-server # 项目名称尽量用小写 
+    compression:
+        enabled: false
+management:
+    metrics:
+        web:
+          server:
+             auto-time-requests: false

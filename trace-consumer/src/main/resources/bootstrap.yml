@@ -1,0 +1,6 @@
+# logback-spring.xml 先于 application.yml,第一次获取不到spring.application.name，后面取的到
+server:
+   port: 8070
+spring:
+   application:
+      name: trace-consumer # 项目名称尽量用小写

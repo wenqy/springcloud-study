@@ -1,0 +1,16 @@
+server:
+   port: 8600
+spring:
+    application:
+        name: stream-demo # 项目名称尽量用小写
+    cloud:
+        stream:
+            bindings:
+                group-demo-topic: # topic
+                    group: groupdemotopic # group 组名
+  # rabbitmq默认地址配置
+rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest

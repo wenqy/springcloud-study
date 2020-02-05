@@ -1,0 +1,39 @@
+server:
+   port: 8400
+spring:
+    main:
+        allow-bean-definition-overriding: true
+    datasource:
+        driver-class-name:  com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/orderdemodb?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT&failOverReadOnly=false&autoReconnect=true
+        username: root
+        password: 123456
+    application:
+        name: order-service # 项目名称尽量用小写 
+mybatis:
+    type-aliases-package: com.wenqy.order.entity
+    config-location: classpath:mybatis/mybatis-config.xml
+eureka:
+  # 配置开启健康检查
+   client:
+      healthcheck:
+         enabled: true
+      serviceUrl:
+         defaultZone: http://localhost:9000/eureka/ # 指定注册中心的地址
+   instance:
+      preferIpAddress: true
+      # 按需配置续约更新时间和到期时间
+      lease-expiration-duration-in-seconds: 30
+      lease-renewal-interval-in-seconds: 10
+logging:
+    level:
+        root: error
+        org.springframework.web: info
+        org.apache.ibatis: info
+        io.netty: info
+        com.wenqy: debug
+    path: "./logs"
+#开启feign hystrix支持
+feign:
+  hystrix:
+    enabled: true

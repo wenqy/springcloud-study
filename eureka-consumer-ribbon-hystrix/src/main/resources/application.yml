@@ -1,0 +1,27 @@
+server:
+   port: 8009
+spring:
+   application:
+      name: consumer-ribbon-hystrix-demo # 项目名称尽量用小写
+eureka:
+  # 配置开启健康检查
+   client:
+      healthcheck:
+         enabled: true
+      serviceUrl:
+         defaultZone: http://localhost:9000/eureka/ # 指定注册中心的地址
+   instance:
+      preferIpAddress: true
+      # 按需配置续约更新时间和到期时间
+      lease-expiration-duration-in-seconds: 30
+      lease-renewal-interval-in-seconds: 10
+logging:
+   file:
+      ${spring.application.name}.log
+      
+#暴露全部的监控信息，如，http://localhost:8009/hystrix.stream可能会404
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

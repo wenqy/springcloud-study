@@ -1,0 +1,26 @@
+eureka-server 9000
+eureka-provider 8000
+eureka-consumer 8002
+eureka-consumer-ribbon 8003
+eureka-consumer-feign 8004
+eureka-provider-feign-upload 8005
+eureka-consumer-feign-upload 8006
+config-server-git 8007
+config-client 8008
+eureka-consumer-ribbon-hystrix 8009
+eureka-consumer-feign-hystrix 8010
+hystrix-dashboard 8011
+
+order-demo 8400
+inventory-demo 8401
+account-demo 8402
+
+zuul-api-gateway 8555
+
+stream-demo 8600
+
+trace-consumer 8070
+trace-provider 8071
+
+zipkin-server 9411
+admin-server 9421

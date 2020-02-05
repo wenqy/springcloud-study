@@ -1,0 +1,24 @@
+server:
+   port: 8007
+spring:
+   application:
+      name: config-server-demo # 项目名称尽量用小写
+   cloud:
+      config:
+          server:
+            git:  # git仓库地址
+              #uri: http://git.oschina.net/wenqygitee/config-repo-demo/
+              # gitlab 添加后缀.git
+              uri: http://10.188.181.252:8900/root/testproject.git
+              #username: root
+              #password: 12345678
+              #search-paths: hongguan-config/respo_conf
+# refresh
+management:
+  endpoint:
+    shutdown:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
