@@ -74,5 +74,6 @@
   	<module>trace-provider</module>
   	<module>zipkin-server</module>
   	<module>admin-server</module>
+  	<module>spring-cloud-alibaba</module>
   </modules>
 </project>

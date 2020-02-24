@@ -24,3 +24,18 @@ trace-provider 8071
 
 zipkin-server 9411
 admin-server 9421
+
+nacos-discovery-provider-example 18082
+nacos-discovery-consumer-example 18083
+sentinel-consumer-example 18084
+nacos-config-example 18085
+nacos-gateway-example 18086
+sentinel-provider-example 18087
+
+rocketmq-provider-example 28081
+rocketmq-provider-example 28082
+
+account-service 38081
+storage-service 38082
+order-service 38083
+business-service 38084
