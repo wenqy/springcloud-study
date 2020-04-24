@@ -35,7 +35,25 @@ sentinel-provider-example 18087
 rocketmq-provider-example 28081
 rocketmq-provider-example 28082
 
+#seata
 account-service 38081
 storage-service 38082
 order-service 38083
 business-service 38084
+
+#dubbo
+provider-sample 48081
+consumer-sample 48082
+provider-web-sample 48084
+
+#
+spring-security-oauth2-server 58080
+spring-security-oauth2-server-jdbc 58081
+spring-security-oauth2-server-rbac 58082
+spring-security-oauth2-server-jwt 58083
+spring-security-oauth2-server-jwt-asym 58084
+spring-security-oauth2-resource 58090
+spring-security-oauth2-resource-jwt 58091
+spring-security-oauth2-resource-jwt-asym 58092
+spring-security-oauth2-resource-jwt-asym-sso 58093
+spring-security-oauth2-gateway 58094

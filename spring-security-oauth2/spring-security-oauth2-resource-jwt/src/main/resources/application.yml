@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: oauth2-resource
+security:
+  oauth2:
+    client:
+      client-id: client
+      client-secret: secret
+      access-token-uri: http://localhost:58083/oauth/token
+      user-authorization-uri: http://localhost:58083/oauth/authorize
+    resource:
+      token-info-uri: http://localhost:58083/oauth/check_token
+    
+server:
+  port: 58091
+  servlet:
+    context-path: /oauth2-resource
+    session:
+      cookie:
+        name: OAUTH2SESSION

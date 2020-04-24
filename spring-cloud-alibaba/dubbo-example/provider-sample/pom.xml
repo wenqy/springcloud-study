@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.wenqy.springcloud</groupId>
+    <artifactId>dubbo-example</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>provider-sample</artifactId>
+  
+<dependencies>
+
+        <!-- Sample API -->
+        <dependency>
+            <groupId>com.wenqy.springcloud</groupId>
+		    <artifactId>sample-api</artifactId>
+		    <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- Dubbo Spring Cloud Starter -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-dubbo</artifactId>
+        </dependency>
+
+        <!-- List all Spring Cloud starters for Service Discovery -->
+
+        <!-- Spring Cloud Nacos Service Discovery -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+    </dependencies>
+</project>

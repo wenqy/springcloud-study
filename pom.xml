@@ -75,5 +75,6 @@
   	<module>zipkin-server</module>
   	<module>admin-server</module>
   	<module>spring-cloud-alibaba</module>
+  	<module>spring-security-oauth2</module>
   </modules>
 </project>

@@ -1,0 +1,79 @@
+spring:
+  application:
+    name: oauth2-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      routes:
+        - filters:
+            - StripPrefix=1
+          id: nacos-route
+          predicates:
+            - args[pattern]: /consumer/**
+              name: Path
+          uri: lb://service-consumer
+  autoconfigure:
+    # TODO: remove when fixed https://github.com/spring-projects/spring-security/issues/6314
+    exclude: org.springframework.boot.actuate.autoconfigure.security.reactive.ReactiveManagementWebSecurityAutoConfiguration
+  security:
+    oauth2:
+      client:
+        registration:
+          login-client:
+            provider: oauth2-server
+            client-id: sheep2
+            client-secret: 123456
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: all
+        provider:
+          oauth2-server:
+            authorization-uri: ${oauth2-server-url}/oauth/authorize
+            token-uri: ${oauth2-server-url}/oauth/token
+            user-info-uri: ${oauth2-server-url}/userinfo
+            user-name-attribute: name
+            jwk-set-uri: ${oauth2-server-url}/token_keys              
+oauth2-server-url: http://localhost:58084/oauth2-server
+
+#security:
+#  oauth2: #与oauth2-server对应的配置
+#    client:
+#      client-id: sheep1
+#      client-secret: 123456
+#      user-authorization-uri: ${oauth2-server-url}/oauth/authorize
+#      access-token-uri: ${oauth2-server-url}/oauth/token
+#    resource:
+#      jwt:
+#        key-uri: ${oauth2-server-url}/oauth/token_key
+#security:
+#  oauth2:
+#    client:
+#      client-id: sheep1
+#      client-secret: 123456
+#      access-token-uri: ${oauth2-server-url}/oauth/token
+#      user-authorization-uri: ${oauth2-server-url}/oauth/authorize
+#      client-authentication-scheme: form
+#    resource:
+#      #token-info-uri: ${oauth2-server-url}/oauth/check_token
+#      jwt:
+#        key-uri: ${oauth2-server-url}/oauth/token_key
+#  ignored: /,/favicon.ico,/index.html,/home.html,/dashboard.html,/js/**,/css/**,/webjars/**
+#  sessions: ALWAYS
+      
+server:
+  port: 58094
+  servlet:
+   # context-path: /oauth2-gateway
+    session:
+      cookie:
+        name: OAUTH2-CLINT-SESSION
+        
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+    org.springframework.security.oauth2: INFO
+    org.springframework.cloud.gateway: TRACE

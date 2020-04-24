@@ -1,8 +1,12 @@
 package com.wenqy.consumer.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -47,5 +51,25 @@ public class TestController {
 	@GetMapping(value = "/echo-feign/{str}")
 	public String feign(@PathVariable String str) {
 		return echoService.echo(str);
+	}
+	
+	/**
+	 * 访问登录页：http://localhost:18083/index
+	 * vue 测试，提供后台服务登录接口
+	 * @param name
+	 * @param pwd
+	 * @return
+	 * @author wenqy
+	 * @date 2020年3月16日 下午3:33:15
+	 */
+	@PostMapping(value = "/api/login")
+	public Object login(String name, String pwd) {
+		Map<Object, Object> hashMap = new HashMap<>();
+		if ("admin".equals(name) && "123456".equals(pwd)) {
+			hashMap.put("data", "success");
+			hashMap.put("code", 200);
+			return hashMap;
+		}
+		throw new RuntimeException("登录失败！");
 	}
 }
